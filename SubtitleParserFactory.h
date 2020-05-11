@@ -1,4 +1,6 @@
 #pragma once
+#include "SubtitleParser.h"
+#include "SubRipParser.h"
 
 enum SubtitleFormat
 {
@@ -15,7 +17,7 @@ private:
 	SubtitleFormat _subFormat;
 	std::string _fileName;
 public:
-	SubtitleParser* getParser();
+	std::unique_ptr<SubtitleParser> getParser();
         SubtitleParserFactory(std::string fileName);
 	SubtitleFormat checkSubtitleFormat(std::string fileName);
 	~SubtitleParserFactory(void);

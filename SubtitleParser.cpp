@@ -15,6 +15,11 @@ std::vector<SubtitleItem*> SubtitleParser::getSubtitles()
 std::string SubtitleParser::getFileData()
 {
 	std::ifstream infile(_fileName);
+	if (!infile.good())
+	{
+		infile.exceptions(infile.failbit);
+	}
+
 	std::string allData = "";
 	std::string line;
 	while (std::getline(infile, line))

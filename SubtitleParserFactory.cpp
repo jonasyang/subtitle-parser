@@ -3,8 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "SubtitleParser.h"
-#include "SubRipParser.h"
+#include <memory>
 #include "SubtitleParserFactory.h"
 
 SubtitleParserFactory::SubtitleParserFactory(std::string fileName)
@@ -37,13 +36,13 @@ SubtitleFormat SubtitleParserFactory::checkSubtitleFormat(std::string fileName)
     }
 }
 
-SubtitleParser* SubtitleParserFactory::getParser()
+std::unique_ptr<SubtitleParser> SubtitleParserFactory::getParser()
 {
 	switch(_subFormat)
 	{
 		case SubRip:
 		{
-			return new SubRipParser(_fileName);
+			return std::make_unique<SubRipParser>(_fileName);
 		}
 		break;
 		default:

@@ -150,10 +150,10 @@ void ass_set_fonts(ASS_Renderer *priv, const char *default_font,
     if (priv->shaper)
         ass_shaper_empty_cache(priv->shaper);
 
-    if (priv->fontselect)
-        ass_fontselect_free(priv->fontselect);
-    priv->fontselect = ass_fontselect_init(priv->library, priv->ftlibrary,
-            default_family, default_font, config, dfp);
+    //if (priv->fontselect)
+    //    ass_fontselect_free(priv->fontselect);
+    //priv->fontselect = ass_fontselect_init(priv->library, priv->ftlibrary,
+    //        default_family, default_font, config, dfp);
 }
 
 void ass_set_selective_style_override_enabled(ASS_Renderer *priv, int bits)
@@ -196,9 +196,9 @@ void ass_set_cache_limits(ASS_Renderer *render_priv, int glyph_max,
     render_priv->cache.composite_max_size = composite_cache;
 }
 
-ASS_FontProvider *
-ass_create_font_provider(ASS_Renderer *priv, ASS_FontProviderFuncs *funcs,
-                         void *data)
-{
-    return ass_font_provider_new(priv->fontselect, funcs, data);
-}
+//ASS_FontProvider *
+//ass_create_font_provider(ASS_Renderer *priv, ASS_FontProviderFuncs *funcs,
+//                         void *data)
+//{
+//    return ass_font_provider_new(priv->fontselect, funcs, data);
+//}

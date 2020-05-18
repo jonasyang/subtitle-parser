@@ -21,8 +21,8 @@
 #include "ass_compat.h"
 
 #include <inttypes.h>
-#include <ft2build.h>
-#include FT_OUTLINE_H
+//#include <ft2build.h>
+//#include FT_OUTLINE_H
 #include <assert.h>
 
 #include "ass_utils.h"
@@ -75,7 +75,7 @@ static bool font_key_move(void *dst, void *src)
 
 static void font_destruct(void *key, void *value)
 {
-    ass_font_clear(value);
+    //ass_font_clear(value);
 }
 
 size_t ass_font_construct(void *key, void *value, void *priv);
@@ -84,7 +84,7 @@ const CacheDesc font_cache_desc = {
     .hash_func = font_hash,
     .compare_func = font_compare,
     .key_move_func = font_key_move,
-    .construct_func = ass_font_construct,
+    //.construct_func = ass_font_construct,
     .destruct_func = font_destruct,
     .key_size = sizeof(ASS_FontDesc),
     .value_size = sizeof(ASS_Font)
@@ -244,8 +244,8 @@ static void outline_destruct(void *key, void *value)
 {
     OutlineHashValue *v = value;
     OutlineHashKey *k = key;
-    outline_free(&v->outline[0]);
-    outline_free(&v->outline[1]);
+    //outline_free(&v->outline[0]);
+    //outline_free(&v->outline[1]);
     switch (k->type) {
     case OUTLINE_GLYPH:
         ass_cache_dec_ref(k->u.glyph.font);
@@ -300,7 +300,7 @@ const CacheDesc glyph_metrics_cache_desc = {
     .construct_func = ass_glyph_metrics_construct,
     .destruct_func = glyph_metrics_destruct,
     .key_size = sizeof(GlyphMetricsHashKey),
-    .value_size = sizeof(FT_Glyph_Metrics)
+    //.value_size = sizeof(FT_Glyph_Metrics)
 };
 
 

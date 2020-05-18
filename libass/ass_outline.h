@@ -19,8 +19,8 @@
 #ifndef LIBASS_OUTLINE_H
 #define LIBASS_OUTLINE_H
 
-#include <ft2build.h>
-#include FT_OUTLINE_H
+//#include <ft2build.h>
+//#include FT_OUTLINE_H
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -87,7 +87,7 @@ typedef struct {
 #define OUTLINE_MAX  (((int32_t) 1 << 28) - 1)
 
 bool outline_alloc(ASS_Outline *outline, size_t n_points, size_t n_segments);
-bool outline_convert(ASS_Outline *outline, const FT_Outline *source);
+//bool outline_convert(ASS_Outline *outline, const FT_Outline *source);
 bool outline_scale_pow2(ASS_Outline *outline, const ASS_Outline *source,
                         int scale_ord_x, int scale_ord_y);
 bool outline_transform_2d(ASS_Outline *outline, const ASS_Outline *source,

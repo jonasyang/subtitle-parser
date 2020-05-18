@@ -35,7 +35,7 @@ typedef struct {
 
 typedef struct {
     bool valid;
-    ASS_Outline outline[2];
+    //ASS_Outline outline[2];
     ASS_Rect cbox;  // bounding box of all control points
     int advance;    // 26.6, advance distance to the next outline in line
     int asc, desc;  // ascender/descender

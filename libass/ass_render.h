@@ -21,13 +21,18 @@
 #define LIBASS_RENDER_H
 
 #include <inttypes.h>
-#include <ft2build.h>
-#include FT_FREETYPE_H
-#include FT_GLYPH_H
-#include FT_SYNTHESIS_H
-#ifdef CONFIG_HARFBUZZ
-#include <hb.h>
+
+#ifdef __cplusplus
+extern "C" {
 #endif
+
+//#include <ft2build.h>
+//#include FT_FREETYPE_H
+//#include FT_GLYPH_H
+//#include FT_SYNTHESIS_H
+//#ifdef CONFIG_HARFBUZZ
+//#include <hb.h>
+//#endif
 
 #include "ass.h"
 #include "ass_font.h"
@@ -265,7 +270,7 @@ typedef struct {
     // whether to apply font_scale
     int apply_font_scale;
     // whether this is assumed to be explicitly positioned
-    int explicit;
+    int explicit_val;
 
     // used to store RenderContext.style when doing selective style overrides
     ASS_Style override_style_temp_storage;
@@ -285,7 +290,7 @@ typedef struct {
 
 struct ass_renderer {
     ASS_Library *library;
-    FT_Library ftlibrary;
+    //FT_Library ftlibrary;
     ASS_FontSelector *fontselect;
     ASS_Settings settings;
     int render_id;
@@ -314,7 +319,7 @@ struct ass_renderer {
     TextInfo text_info;
     CacheStore cache;
 
-    //const BitmapEngine *engine;
+    const BitmapEngine *engine;
     RasterizerData rasterizer;
 
     ASS_Style user_override_style;
@@ -344,4 +349,9 @@ void ass_frame_unref(ASS_Image *img);
 // XXX: this is actually in ass.c, includes should be fixed later on
 void ass_lazy_track_init(ASS_Library *lib, ASS_Track *track);
 
+bool ass_render_event(ASS_Renderer* render_priv, ASS_Event* event,
+    EventImages* event_images);
+#ifdef __cplusplus
+}
+#endif
 #endif /* LIBASS_RENDER_H */

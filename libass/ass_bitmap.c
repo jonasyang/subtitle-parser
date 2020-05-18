@@ -26,9 +26,9 @@
 #include <math.h>
 #include <stdbool.h>
 #include <assert.h>
-#include <ft2build.h>
-#include FT_GLYPH_H
-#include FT_OUTLINE_H
+//#include <ft2build.h>
+//#include FT_GLYPH_H
+//#include FT_OUTLINE_H
 
 #include "ass_utils.h"
 #include "ass_outline.h"

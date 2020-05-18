@@ -21,8 +21,8 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include <ft2build.h>
-#include FT_FREETYPE_H
+//#include <ft2build.h>
+//#include FT_FREETYPE_H
 
 typedef struct ass_shaper_font_data ASS_ShaperFontData;
 typedef struct font_selector ASS_FontSelector;
@@ -224,11 +224,11 @@ struct ass_font_mapping {
 void ass_map_font(const ASS_FontMapping *map, int len, const char *name,
                   ASS_FontProviderMetaData *meta);
 
-ASS_FontSelector *
-ass_fontselect_init(ASS_Library *library,
-                    FT_Library ftlibrary, const char *family,
-                    const char *path, const char *config,
-                    ASS_DefaultFontProvider dfp);
+//ASS_FontSelector *
+//ass_fontselect_init(ASS_Library *library,
+//                    FT_Library ftlibrary, const char *family,
+//                    const char *path, const char *config,
+//                    ASS_DefaultFontProvider dfp);
 char *ass_font_select(ASS_FontSelector *priv, ASS_Library *library,
                       ASS_Font *font, int *index, char **postscript_name,
                       int *uid, ASS_FontStream *data, uint32_t code);
@@ -276,9 +276,9 @@ ass_font_provider_add_font(ASS_FontProvider *provider,
  * \return success
  *
  */
-bool ass_get_font_info(ASS_Library *lib, FT_Library ftlib, const char *path,
-                       const char *postscript_name, int index,
-                       ASS_FontProviderMetaData *info);
+//bool ass_get_font_info(ASS_Library *lib, FT_Library ftlib, const char *path,
+//                       const char *postscript_name, int index,
+//                       ASS_FontProviderMetaData *info);
 
 /**
  * \brief Free font provider and associated fonts.

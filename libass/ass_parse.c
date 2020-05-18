@@ -123,7 +123,7 @@ void update_font(ASS_Renderer *render_priv)
     desc.italic = val;
 
     ass_cache_dec_ref(render_priv->state.font);
-    render_priv->state.font = ass_font_new(render_priv, &desc);
+    //render_priv->state.font = ass_font_new(render_priv, &desc);
 }
 
 /**

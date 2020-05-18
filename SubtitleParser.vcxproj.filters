@@ -69,6 +69,24 @@
     <ClCompile Include="libass\ass_shaper.c">
       <Filter>Source Files\libass</Filter>
     </ClCompile>
+    <ClCompile Include="libass\ass_bitmap.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_rasterizer.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_rasterizer_c.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_blur.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_cache.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_parse.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="subparser.h">
@@ -111,6 +129,21 @@
       <Filter>Source Files\libass</Filter>
     </ClInclude>
     <ClInclude Include="libass\ass_shaper.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_bitmap.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_rasterizer.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_cache.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_cache_template.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_parse.h">
       <Filter>Source Files\libass</Filter>
     </ClInclude>
   </ItemGroup>

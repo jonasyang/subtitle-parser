@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\app">
+      <UniqueIdentifier>{9bb9f227-cb85-471f-ac85-c05a9c85116e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\libass">
+      <UniqueIdentifier>{48a0e156-4c35-436a-82bd-251ff2d94430}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="subparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubRipParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubtitleItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubtitleParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubtitleParserFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubtitleWord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_utils.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_string.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_strtod.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="SubAssParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_library.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_render.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_render_api.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+    <ClCompile Include="libass\ass_shaper.c">
+      <Filter>Source Files\libass</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="subparser.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubRipParser.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtitleItem.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtitleParser.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtitleParserFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtitleWord.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_utils.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_string.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_types.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="SubAssParser.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_library.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_render.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+    <ClInclude Include="libass\ass_shaper.h">
+      <Filter>Source Files\libass</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -30,6 +30,10 @@ SubtitleFormat SubtitleParserFactory::checkSubtitleFormat(std::string fileName)
 	{
 		return WebVtt;
 	}
+	else if (format == ".ass")
+	{
+		return Ass;
+	}
     else
     {
         return UndefinedType;
@@ -45,6 +49,10 @@ std::unique_ptr<SubtitleParser> SubtitleParserFactory::getParser()
 			return std::make_unique<SubRipParser>(_fileName);
 		}
 		break;
+		case Ass:
+		{
+			return std::make_unique<SubAssParser>(_fileName);
+		}
 		default:
 		{
 			std::cout<<"Error: Undefined subtitle format!";

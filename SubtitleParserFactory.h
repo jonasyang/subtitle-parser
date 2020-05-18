@@ -1,13 +1,15 @@
 #pragma once
 #include "SubtitleParser.h"
 #include "SubRipParser.h"
+#include "SubAssParser.h"
 
 enum SubtitleFormat
 {
 	UndefinedType = -1,
 	SubRip,
 	MicroDvd,
-	WebVtt
+	WebVtt,
+	Ass
 };
 class SubtitleParser;
 

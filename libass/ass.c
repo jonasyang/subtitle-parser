@@ -611,7 +611,10 @@ static int process_info_line(ASS_Track *track, char *str)
         char *p = str + 9;
         while (*p && ass_isspace(*p)) p++;
         free(track->Language);
-        track->Language = strndup(p, 2);
+        track->Language = (char *)malloc(3);
+        track->Language[0] = p[0];
+        track->Language[1] = p[1];
+        track->Language[2] = '\0';
     }
     return 0;
 }
@@ -709,8 +712,8 @@ static int decode_font(ASS_Track *track)
     assert(dsize == size / 4 * 3 + FFMAX(size % 4 - 1, 0));
 
     if (track->library->extract_fonts) {
-        ass_add_font(track->library, track->parser_priv->fontname,
-                     (char *) buf, dsize);
+        //ass_add_font(track->library, track->parser_priv->fontname,
+        //             (char *) buf, dsize);
     }
 
 error_decode_font:
@@ -767,17 +770,17 @@ static int process_fonts_line(ASS_Track *track, char *str)
 */
 static int process_line(ASS_Track *track, char *str)
 {
-    if (!ass_strncasecmp(str, "[Script Info]", 13)) {
+    if (!strncmp(str, "[Script Info]", 13)) {
         track->parser_priv->state = PST_INFO;
-    } else if (!ass_strncasecmp(str, "[V4 Styles]", 11)) {
+    } else if (!strncmp(str, "[V4 Styles]", 11)) {
         track->parser_priv->state = PST_STYLES;
         track->track_type = TRACK_TYPE_SSA;
-    } else if (!ass_strncasecmp(str, "[V4+ Styles]", 12)) {
+    } else if (!strncmp(str, "[V4+ Styles]", 12)) {
         track->parser_priv->state = PST_STYLES;
         track->track_type = TRACK_TYPE_ASS;
-    } else if (!ass_strncasecmp(str, "[Events]", 8)) {
+    } else if (!strncmp(str, "[Events]", 8)) {
         track->parser_priv->state = PST_EVENTS;
-    } else if (!ass_strncasecmp(str, "[Fonts]", 7)) {
+    } else if (!strncmp(str, "[Fonts]", 7)) {
         track->parser_priv->state = PST_FONTS;
     } else {
         switch (track->parser_priv->state) {

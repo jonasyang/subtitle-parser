@@ -1887,85 +1887,88 @@ static bool parse_events(ASS_Renderer *render_priv, ASS_Event *event)
         if (code == 0)
             break;
 
-        // face could have been changed in get_next_char
-        if (!render_priv->state.font) {
-            free_render_context(render_priv);
-            free(drawing_text);
-            return false;
-        }
-
-        if (text_info->length >= text_info->max_glyphs) {
-            // Raise maximum number of glyphs
-            text_info->max_glyphs *= 2;
-            text_info->glyphs =
-                realloc(text_info->glyphs,
-                        sizeof(GlyphInfo) * text_info->max_glyphs);
-        }
-
-        GlyphInfo *info = &text_info->glyphs[text_info->length];
-
-        // Clear current GlyphInfo
-        memset(info, 0, sizeof(GlyphInfo));
-
-        // Parse drawing
         if (drawing_text) {
-            info->drawing_text = drawing_text;
-            info->drawing_scale = render_priv->state.drawing_scale;
-            info->drawing_pbo = render_priv->state.pbo;
+            printf("%s\n", drawing_text);
         }
+        // face could have been changed in get_next_char
+        // if (!render_priv->state.font) {
+        //     free_render_context(render_priv);
+        //     free(drawing_text);
+        //     return false;
+        // }
 
-        // Fill glyph information
-        info->symbol = code;
-        info->font = render_priv->state.font;
-        if (!drawing_text)
-            ass_cache_inc_ref(info->font);
-        for (int i = 0; i < 4; i++) {
-            uint32_t clr = render_priv->state.c[i];
-            // VSFilter compatibility: apply fade only when it's positive
-            if (render_priv->state.fade > 0)
-                change_alpha(&clr,
-                             mult_alpha(_a(clr), render_priv->state.fade), 1.);
-            info->c[i] = clr;
-        }
+        // if (text_info->length >= text_info->max_glyphs) {
+        //     // Raise maximum number of glyphs
+        //     text_info->max_glyphs *= 2;
+        //     text_info->glyphs =
+        //         realloc(text_info->glyphs,
+        //                 sizeof(GlyphInfo) * text_info->max_glyphs);
+        // }
 
-        info->effect_type = render_priv->state.effect_type;
-        info->effect_timing = render_priv->state.effect_timing;
-        info->effect_skip_timing = render_priv->state.effect_skip_timing;
-        info->font_size =
-            render_priv->state.font_size * render_priv->font_scale;
-        info->be = render_priv->state.be;
-        info->blur = render_priv->state.blur;
-        info->shadow_x = render_priv->state.shadow_x;
-        info->shadow_y = render_priv->state.shadow_y;
-        info->scale_x = render_priv->state.scale_x;
-        info->scale_y = render_priv->state.scale_y;
-        info->border_style = render_priv->state.border_style;
-        info->border_x = render_priv->state.border_x;
-        info->border_y = render_priv->state.border_y;
-        info->hspacing = render_priv->state.hspacing;
-        info->bold = render_priv->state.bold;
-        info->italic = render_priv->state.italic;
-        info->flags = render_priv->state.flags;
-        if (info->font->desc.vertical && code >= VERTICAL_LOWER_BOUND)
-            info->flags |= DECO_ROTATE;
-        info->frx = render_priv->state.frx;
-        info->fry = render_priv->state.fry;
-        info->frz = render_priv->state.frz;
-        info->fax = render_priv->state.fax;
-        info->fay = render_priv->state.fay;
+        // GlyphInfo *info = &text_info->glyphs[text_info->length];
 
-        info->hspacing_scaled = double_to_d6(info->hspacing *
-                render_priv->font_scale * info->scale_x);
-        info->scale_fix = 1;
+        // // Clear current GlyphInfo
+        // memset(info, 0, sizeof(GlyphInfo));
 
-        if (!drawing_text)
-            fix_glyph_scaling(render_priv, info);
+        // // Parse drawing
+        // if (drawing_text) {
+        //     info->drawing_text = drawing_text;
+        //     info->drawing_scale = render_priv->state.drawing_scale;
+        //     info->drawing_pbo = render_priv->state.pbo;
+        // }
 
-        text_info->length++;
+        // // Fill glyph information
+        // info->symbol = code;
+        // info->font = render_priv->state.font;
+        // if (!drawing_text)
+        //     ass_cache_inc_ref(info->font);
+        // for (int i = 0; i < 4; i++) {
+        //     uint32_t clr = render_priv->state.c[i];
+        //     // VSFilter compatibility: apply fade only when it's positive
+        //     if (render_priv->state.fade > 0)
+        //         change_alpha(&clr,
+        //                      mult_alpha(_a(clr), render_priv->state.fade), 1.);
+        //     info->c[i] = clr;
+        // }
 
-        render_priv->state.effect_type = EF_NONE;
-        render_priv->state.effect_timing = 0;
-        render_priv->state.effect_skip_timing = 0;
+        // info->effect_type = render_priv->state.effect_type;
+        // info->effect_timing = render_priv->state.effect_timing;
+        // info->effect_skip_timing = render_priv->state.effect_skip_timing;
+        // info->font_size =
+        //     render_priv->state.font_size * render_priv->font_scale;
+        // info->be = render_priv->state.be;
+        // info->blur = render_priv->state.blur;
+        // info->shadow_x = render_priv->state.shadow_x;
+        // info->shadow_y = render_priv->state.shadow_y;
+        // info->scale_x = render_priv->state.scale_x;
+        // info->scale_y = render_priv->state.scale_y;
+        // info->border_style = render_priv->state.border_style;
+        // info->border_x = render_priv->state.border_x;
+        // info->border_y = render_priv->state.border_y;
+        // info->hspacing = render_priv->state.hspacing;
+        // info->bold = render_priv->state.bold;
+        // info->italic = render_priv->state.italic;
+        // info->flags = render_priv->state.flags;
+        // if (info->font->desc.vertical && code >= VERTICAL_LOWER_BOUND)
+        //     info->flags |= DECO_ROTATE;
+        // info->frx = render_priv->state.frx;
+        // info->fry = render_priv->state.fry;
+        // info->frz = render_priv->state.frz;
+        // info->fax = render_priv->state.fax;
+        // info->fay = render_priv->state.fay;
+
+        // info->hspacing_scaled = double_to_d6(info->hspacing *
+        //         render_priv->font_scale * info->scale_x);
+        // info->scale_fix = 1;
+
+        // if (!drawing_text)
+        //     fix_glyph_scaling(render_priv, info);
+
+        // text_info->length++;
+
+        // render_priv->state.effect_type = EF_NONE;
+        // render_priv->state.effect_timing = 0;
+        // render_priv->state.effect_skip_timing = 0;
     }
 
     return true;

@@ -22,6 +22,7 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <limits.h>
 #include "ass_types.h"
 
 #define LIBASS_VERSION 0x01400001
